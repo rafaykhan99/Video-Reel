@@ -1,0 +1,7 @@
+<svg width="720" height="1280" viewBox="0 0 720 1280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="1280" fill="#f8fafc"/>
+  <rect x="0" y="0" width="720" height="80" fill="#2563eb"/>
+  <text x="360" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">ExplainerAI</text>
+  <rect x="40" y="120" width="640" height="400" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="360" y="180" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">Mobile Video Creation</text>
+</svg>

@@ -1,0 +1,53 @@
+// 1) Safer escaping for ffmpeg drawtext
+const esc = (t: string) =>
+  t
+    .replace(/\\/g, '\\\\')
+    .replace(/:/g, '\\:')
+    .replace(/'/g, "\\'")
+    .replace(/\[/g, '\\[')
+    .replace(/\]/g, '\\]');
+
+// 2) DO NOT strip quotes first. Just normalize whitespace.
+let baseText = scriptSegment.text
+  .replace(/\s+/g, ' ')
+  .trim();
+
+// 3) Wrap by characters or measured words, but don't compute glyph widths.
+//    Example: simple word-wrap to ~28–32 chars for fontsize=72
+const wrap = (s: string, max = 30) => {
+  const out: string[] = [];
+  let line = '';
+  for (const w of s.split(' ')) {
+    if ((line + ' ' + w).trim().length > max) {
+      out.push(line.trim());
+      line = w;
+    } else {
+      line += ' ' + w;
+    }
+  }
+  if (line.trim()) out.push(line.trim());
+  return out;
+};
+
+const lines = wrap(baseText, 30); // tune for your font size
+const textStartTime = 0.5;
+const textEndTime   = durationPerImage - 0.5;
+const lineSpacing   = 14;      // drawtext line_spacing is in pixels
+const fontSize      = 72;
+const topY          = 200;     // where the first line starts
+
+// 4) For each line, draw a gray base and a yellow "highlight" with timing.
+//    Center horizontally with (w-text_w)/2 — this uses real font metrics.
+for (let i = 0; i < Math.min(lines.length, 9); i++) {
+  const y = `${topY + i * (fontSize + lineSpacing)}`;
+  const line = esc(lines[i]);
+
+  const appearT0 = textStartTime + (i / Math.max(lines.length, 1)) * (textEndTime - textStartTime);
+  const appearT1 = textEndTime;
+
+  // Base gray line
+  filter += `,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='${line}':fontsize=${fontSize}:fontcolor=gray:line_spacing=${lineSpacing}:x=(w-text_w)/2:y=${y}:shadowcolor=black@1:shadowx=4:shadowy=4:enable='between(t,${textStartTime},${appearT1})'`;
+
+  // Highlight the whole line later (instead of word-by-word)
+  filter += `,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='${line}':fontsize=${fontSize}:fontcolor=yellow:line_spacing=${lineSpacing}:x=(w-text_w)/2:y=${y}:shadowcolor=black@1:shadowx=4:shadowy=4:enable='between(t,${appearT0},${appearT1})'`;
+}

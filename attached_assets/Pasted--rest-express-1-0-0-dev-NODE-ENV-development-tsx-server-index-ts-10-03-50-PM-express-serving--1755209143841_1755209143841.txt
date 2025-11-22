@@ -1,0 +1,145 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+10:03:50 PM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+10:04:00 PM [express] GET /api/auth/user 401 in 2ms :: {"message":"Unauthorized"}
+10:04:04 PM [express] GET /api/auth/user 304 in 282ms :: {"id":"46334427","email":"rafayhamid7@gmail.…
+10:04:04 PM [express] POST /api/videos/calculate-cost 200 in 84ms :: {"credits":15,"estimatedUsdCost"…
+10:04:04 PM [express] GET /api/credits 304 in 176ms :: {"balance":19512,"transactions":[{"id":"935a3d…
+10:04:05 PM [express] GET /api/videos 200 in 189ms :: [{"id":"0375a0da-4be5-4972-9adb-953e183d4805","…
+Creating video with data: {
+  "topic": "banana vs apple",
+  "duration": 30,
+  "language": "english",
+  "voiceStyle": "professional",
+  "imageStyle": "modern",
+  "imageProvider": "runware",
+  "runwareModel": "runware:100@1",
+  "textFont": "dejavu-mono-bold",
+  "subtitles": true
+}
+Validated data: {
+  "topic": "banana vs apple",
+  "duration": 30,
+  "language": "english",
+  "voiceStyle": "professional",
+  "imageStyle": "modern",
+  "imageProvider": "runware",
+  "runwareModel": "runware:100@1",
+  "textFont": "dejavu-mono-bold",
+  "subtitles": true,
+  "userId": "46334427"
+}
+Created video: {
+  "id": "94f9c13f-5bcc-48e1-8589-48b0349fad27",
+  "userId": "46334427",
+  "topic": "banana vs apple",
+  "duration": 30,
+  "status": "pending",
+  "script": null,
+  "language": "english",
+  "voiceStyle": "professional",
+  "imageStyle": "modern",
+  "imageProvider": "runware",
+  "runwareModel": "runware:100@1",
+  "textFont": "dejavu-sans-bold",
+  "subtitles": true,
+  "videoUrl": null,
+  "assets": null,
+  "subtitleData": null,
+  "errorMessage": null,
+  "creditsUsed": 0,
+  "createdAt": "2025-08-14T22:04:47.270Z",
+  "updatedAt": "2025-08-14T22:04:47.270Z"
+}
+10:04:47 PM [express] POST /api/videos 200 in 720ms :: {"id":"94f9c13f-5bcc-48e1-8589-48b0349fad27","…
+10:04:47 PM [express] GET /api/videos 200 in 166ms :: [{"id":"94f9c13f-5bcc-48e1-8589-48b0349fad27","…
+Starting script and image generation for video 94f9c13f-5bcc-48e1-8589-48b0349fad27
+[generateScriptAndImages] Starting for video 94f9c13f-5bcc-48e1-8589-48b0349fad27
+[generateScriptAndImages] Generating script for video: 94f9c13f-5bcc-48e1-8589-48b0349fad27
+Generating dual-language script for topic: "banana vs apple", duration: 30s, segments: 3
+Making OpenAI API call for script generation...
+10:04:48 PM [express] POST /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27/generate 200 in 766ms :: …
+10:04:48 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 200 in 267ms :: {"id":"94f…
+10:04:48 PM [express] GET /api/credits 200 in 184ms :: {"balance":19497,"transactions":[{"id":"a7f481…
+10:04:50 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 128ms :: {"id":"94f…
+10:04:51 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 129ms :: {"id":"94f…
+10:04:54 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 137ms :: {"id":"94f…
+10:04:55 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 128ms :: {"id":"94f…
+10:04:57 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 129ms :: {"id":"94f…
+OpenAI API call completed successfully
+Generated 3 script segments with single-language content
+Using OpenAI generated script
+Generating images for video: 94f9c13f-5bcc-48e1-8589-48b0349fad27
+Generating image 0 with English prompt: "A side-by-side comparison of a ripe banana and a shiny red apple, with icons representing potassium for the banana and fiber for the apple."
+Making Runware API call for image generation...
+Using model: runware:100@1
+10:04:58 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 200 in 129ms :: {"id":"94f…
+10:05:00 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 128ms :: {"id":"94f…
+10:05:00 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 128ms :: {"id":"94f…
+Runware API call completed successfully
+Runware image generation cost: $0.0038
+Image 0 generated successfully with runware using English prompt
+Generating image 1 with English prompt: "An athlete eating a banana on a running track, and a person biting into a crunchy apple with a healthy smile."
+Making Runware API call for image generation...
+Using model: runware:100@1
+Runware API call completed successfully
+Runware image generation cost: $0.0038
+Image 1 generated successfully with runware using English prompt
+Generating image 2 with English prompt: "A kitchen setting with a bowl of bananas and apples, with a person contemplating their choice with a thoughtful expression."
+Making Runware API call for image generation...
+Using model: runware:100@1
+10:05:04 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 129ms :: {"id":"94f…
+10:05:04 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 129ms :: {"id":"94f…
+Runware API call completed successfully
+Runware image generation cost: $0.0038
+Image 2 generated successfully with runware using English prompt
+[generateScriptAndImages] Script and images generated successfully for editing. Video 94f9c13f-5bcc-48e1-8589-48b0349fad27 status set to 'editing'
+10:05:06 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 200 in 132ms :: {"id":"94f…
+10:05:16 PM [express] GET /api/auth/user 200 in 130ms :: {"id":"46334427","email":"rafayhamid7@gmail.…
+10:05:16 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 304 in 131ms :: {"id":"94f…
+10:05:16 PM [express] GET /api/credits 304 in 172ms :: {"balance":19497,"transactions":[{"id":"a7f481…
+[compileVideo] Starting compilation for video 94f9c13f-5bcc-48e1-8589-48b0349fad27
+10:05:19 PM [express] POST /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27/compile 200 in 175ms :: {…
+[compileVideo] Generating audio for 3 segments
+[compileVideo] Generating audio for segment 1/3
+10:05:20 PM [express] GET /api/videos/94f9c13f-5bcc-48e1-8589-48b0349fad27 200 in 129ms :: {"id":"94f…
+10:05:20 PM [express] GET /api/videos 200 in 173ms :: [{"id":"94f9c13f-5bcc-48e1-8589-48b0349fad27","…
+10:05:22 PM [express] GET /api/videos 304 in 173ms :: [{"id":"94f9c13f-5bcc-48e1-8589-48b0349fad27","…
+[compileVideo] Audio segment 1 generated: 9.02s
+[compileVideo] Generating audio for segment 2/3
+[compileVideo] Audio segment 2 generated: 8.18s
+[compileVideo] Generating audio for segment 3/3
+10:05:25 PM [express] GET /api/videos 304 in 172ms :: [{"id":"94f9c13f-5bcc-48e1-8589-48b0349fad27","…
+[compileVideo] Audio segment 3 generated: 6.50s
+[compileVideo] Downloading image 1/3
+[compileVideo] Downloading image 2/3
+[compileVideo] Downloading image 3/3
+[compileVideo] Creating enhanced video at /home/runner/workspace/temp/94f9c13f-5bcc-48e1-8589-48b0349fad27/94f9c13f-5bcc-48e1-8589-48b0349fad27.mp4
+Creating video at /home/runner/workspace/temp/94f9c13f-5bcc-48e1-8589-48b0349fad27/94f9c13f-5bcc-48e1-8589-48b0349fad27.mp4, subtitles enabled: true
+Creating title page with FFmpeg: -y -f lavfi -i color=c=0x1e3a8a:size=1920x1080:duration=0.1 -filter_complex [0:v]drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='banana vs apple':fontsize=72:fontcolor=white:x=(w-text_w)/2:y=(h-text_h)/2-50:shadowcolor=black:shadowx=3:shadowy=3[title];[title]drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='Explainer Video':fontsize=36:fontcolor=0xe2e8f0:x=(w-text_w)/2:y=(h-text_h)/2+50+5*sin(t*2):shadowcolor=black:shadowx=2:shadowy=2:alpha='if(between(t,0.5,2),1,0)'[final] -map [final] -frames:v 1 -pix_fmt yuv420p /home/runner/workspace/temp/94f9c13f-5bcc-48e1-8589-48b0349fad27/title_page.png
+Title page created successfully
+[FFMPEG NATIVE] Using native centering for 5 lines: [
+  'Meet the banana and the apple,',
+  'two popular fruits packed with',
+  'nutrients. Bananas are rich in',
+  'potassium, while apples are a',
+  'great source of fiber.'
+]
+[FFMPEG NATIVE] Line 0: "Meet the banana and the apple," at y=200, highlight timing=0.50-6.74
+/home/runner/workspace/server/services/videoProcessor.ts:208
+            filter += `,drawtext=fontfile=${getFontPath(video.textFont || 'dejavu-sans-bold')}:text='${line}':fontsize=${fontSize}:fontcolor=yellow:x=(w-text_w)/2:y=${y}:shadowcolor=black@0.8:shadowx=4:shadowy=4:enable='between(t,${appearT0},${appearT1})'`;
+                                                        ^
+
+
+ReferenceError: video is not defined
+    at <anonymous> (/home/runner/workspace/server/services/videoProcessor.ts:208:57)
+    at Array.map (<anonymous>)
+    at <anonymous> (/home/runner/workspace/server/services/videoProcessor.ts:134:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+Node.js v20.19.3

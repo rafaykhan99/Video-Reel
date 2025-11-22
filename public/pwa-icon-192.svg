@@ -1,0 +1,6 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#2563eb" rx="32"/>
+  <circle cx="96" cy="75" r="30" fill="white"/>
+  <path d="M65 75 L95 105 L127 75" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">ExplainerAI</text>
+</svg>
